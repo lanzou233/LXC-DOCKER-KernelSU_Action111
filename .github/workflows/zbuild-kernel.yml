@@ -146,7 +146,7 @@ jobs:
       if: env.LXC_DOCKER == 'true'
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
-        wget https://github.com/wu17481748/lxc-docker/releases/download/lxc-docker-2config/LXC-DOCKER-OPEN-CONFIG.sh
+        wget https://github.com/jqtmviyu/LXC_KernelSU_Action/raw/refs/heads/main/patches/lxc-docker-config.conf
         chmod 777 LXC-DOCKER-OPEN-CONFIG.sh
         ./LXC-DOCKER-OPEN-CONFIG.sh android-kernel/arch/arm64/configs/${{ env.KERNEL_CONFIG }} -w
 
@@ -155,7 +155,7 @@ jobs:
       if: env.LXC_PATCH == 'true'
       run: |
        cd $GITHUB_WORKSPACE/kernel_workspace
-       wget https://github.com/fate-think/LXC-DOCKER-KernelSU_Action/releases/download/1.0.0/runcpatch.sh
+       wget https://github.com/jqtmviyu/LXC_KernelSU_Action/raw/refs/heads/main/patches/lxc-docker-config.conf
        chmod a+x runcpatch.sh
        if [ -f android-kernel/kernel/cgroup.c ]; then
        ./runcpatch.sh android-kernel/kernel/cgroup.c               
